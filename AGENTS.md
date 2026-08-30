@@ -1,0 +1,1 @@
+Use the terminology defined in [docs/glossary.md](docs/glossary.md).

@@ -1,0 +1,10 @@
+[package]
+name = "mu-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[[bin]]
+name = "mu"
+path = "src/main.rs"

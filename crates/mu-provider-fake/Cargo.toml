@@ -1,0 +1,7 @@
+[package]
+name = "mu-provider-fake"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+mu-agent = { path = "../mu-agent" }

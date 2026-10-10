@@ -28,3 +28,12 @@ fn mu_without_args_fails() {
     let output = run_mu(&[]);
     assert!(!output.status.success())
 }
+
+#[test]
+fn mu_with_prompt_prints_answer() {
+    let output = run_mu(&["-p", "write binary search in python"]);
+    let stdout = String::from_utf8(output.stdout).unwrap();
+    assert_eq!(output.status.code(), Some(0));
+    assert_eq!(stdout, "FakeProvider answer\n");
+    assert!(output.stderr.is_empty());
+}

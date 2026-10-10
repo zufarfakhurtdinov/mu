@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+mu-agent = { path = "../mu-agent" }
+mu-provider-fake = { path = "../mu-provider-fake" }
+tokio = { version = "1", features = ["macros", "rt"] }
 
 [[bin]]
 name = "mu"

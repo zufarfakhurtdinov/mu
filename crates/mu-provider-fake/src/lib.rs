@@ -1,8 +1,11 @@
 use mu_agent::{Context, Model, provider::Provider};
 
+pub const PROVIDER_ID: &str = "fake";
+pub const MODEL_ID: &str = "fake";
+
 pub fn model() -> Model {
     Model {
-        id: "fake".to_owned(),
+        id: MODEL_ID.to_owned(),
     }
 }
 

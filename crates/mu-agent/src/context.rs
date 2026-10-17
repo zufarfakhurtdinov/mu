@@ -1,7 +1,7 @@
-use crate::Tool;
+use crate::{Message, Tool};
 
 pub struct Context {
     pub system_prompt: Option<String>,
-    pub messages: Vec<String>,
+    pub messages: Vec<Message>,
     pub tools: Option<Vec<Tool>>,
 }

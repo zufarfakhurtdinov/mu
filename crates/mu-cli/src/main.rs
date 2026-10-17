@@ -1,6 +1,7 @@
 mod providers;
 
 use mu_agent::{Context, provider::Provider};
+use mu_agent::{Message, UserMessage};
 use providers::ModelProvider;
 use std::env;
 use std::process::ExitCode;
@@ -98,9 +99,12 @@ async fn main() -> ExitCode {
         }
     };
 
+    let user_message = UserMessage {
+        content: args.prompt.to_owned(),
+    };
     let context = Context {
         system_prompt: None,
-        messages: vec![args.prompt.to_owned()],
+        messages: vec![Message::User(user_message)],
         tools: None,
     };
     let provider = match ModelProvider::from_id(args.provider.as_str()) {
@@ -116,7 +120,7 @@ async fn main() -> ExitCode {
     };
     match provider.complete(&model, &context).await {
         Ok(answer) => {
-            println!("{answer}");
+            println!("{}", answer.content);
             return ExitCode::from(0);
         }
         Err(error) => {

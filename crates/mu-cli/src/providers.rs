@@ -1,4 +1,4 @@
-use mu_agent::{Context, Model, provider::Provider};
+use mu_agent::{AssistantMessage, Context, Model, provider::Provider};
 use mu_provider_fake::FakeProvider;
 
 pub enum ModelProvider {
@@ -25,7 +25,7 @@ impl ModelProvider {
 }
 
 impl Provider for ModelProvider {
-    async fn complete(&self, model: &Model, context: &Context) -> Result<String, String> {
+    async fn complete(&self, model: &Model, context: &Context) -> Result<AssistantMessage, String> {
         match self {
             Self::Fake(provider) => provider.complete(model, context).await,
         }

@@ -1,4 +1,4 @@
-use crate::{Context, Model};
+use crate::{AssistantMessage, Context, Model};
 
 pub trait Provider {
     //this will be stream() fn later
@@ -6,5 +6,5 @@ pub trait Provider {
         &self,
         model: &Model,
         context: &Context,
-    ) -> impl Future<Output = Result<String, String>> + Send;
+    ) -> impl Future<Output = Result<AssistantMessage, String>> + Send;
 }
